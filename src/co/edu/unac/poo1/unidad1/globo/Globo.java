@@ -22,4 +22,28 @@ public class Globo {
         this.marca = marca;
         this.tipoGlobo = tipoGlobo;
     }
+
+    public String getMarca() {
+        return marca;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
+    public String getTipoGlobo() {
+        return tipoGlobo;
+    }
+
+    public void setTipoGlobo(String tipoGlobo) {
+        this.tipoGlobo = tipoGlobo;
+    }
+
+    public Integer getCapacidadPersonas() {
+        return capacidadPersonas;
+    }
+
+    public void setCapacidadPersonas(Integer capacidadPersonas) {
+        this.capacidadPersonas = capacidadPersonas;
+    }
 }
