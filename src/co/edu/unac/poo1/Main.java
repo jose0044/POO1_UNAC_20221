@@ -111,10 +111,10 @@ public class Main {
         Casco cascoAgv = new Casco ("rosado" , "l", "Agv",
                 "racing", "fibra de vidrio",visorAgv);
         System.out.println("El casco " +cascoSpartan.getMarca()+" es de color " +cascoSpartan.getColor()
-        +" y de visor color " +cascoSpartan.getVisor().getColor());
+        + " y de visor color " +cascoSpartan.getVisor().getColor());
         System.out.println("-------------------------------------------------------------------------");
         System.out.println("El casco " +cascoAgv.getMarca()+" es de color " +cascoAgv.getColor()
-        +" y de visor color " +cascoAgv.getVisor().getColor());
+        + " y de visor color " +cascoAgv.getVisor().getColor());
     }
 
     private static void registrarYVerMoto(){
@@ -138,7 +138,9 @@ public class Main {
         motoBryan.setTamano(tamano);
         motoBryan.setModelo(modelo);
 
+        System.out.println("-------------------------------------------------------------------------");
         System.out.println("La moto es modelo " + motoBryan.getModelo()
-        +" con un tamaño "+motoBryan.getTamano()+" y de color "+ motoBryan.getColor());
+        + " con un tamaño "+motoBryan.getTamano()+" y de color "+ motoBryan.getColor());
+        System.out.println("-------------------------------------------------------------------------");
     }
 }
