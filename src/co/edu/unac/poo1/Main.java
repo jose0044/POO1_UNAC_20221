@@ -1,5 +1,7 @@
 package co.edu.unac.poo1;
 
+import co.edu.unac.poo1.plantas.Frailejon;
+import co.edu.unac.poo1.plantas.Planta;
 import co.edu.unac.poo1.unidad1.globo.Globo;
 import co.edu.unac.poo1.unidad1.moto.Moto;
 import co.edu.unac.poo1.unidad1.moto.accesorios.Casco;
@@ -22,7 +24,10 @@ public class Main {
             System.out.println("2. Recomendar un tipo de Globo");
             System.out.println("3. Ver tipos de Cascos");
             System.out.println("4. Registrar y ver una moto");
-            System.out.println("5. Salir de la aplicacion");
+            System.out.println("5. Quiz #3");
+            System.out.println("6. Ver arreglo de Frailejones");
+            System.out.println("7. Ver suma de matrices de Orden 4");
+            System.out.println("8. Salir de la aplicacion");
             opcionMenu = scanner.nextInt();
             scanner.nextLine(); //Se agrega para procesar el enter despues de digitar un numero
             switch(opcionMenu){
@@ -39,6 +44,15 @@ public class Main {
                     registrarYVerMoto();
                     break;
                 case 5:
+                    quiz3();
+                    break;
+                case 6:
+                    mostrarArregloFrailejones();
+                    break;
+                case 7:
+                    sumarMatricesOrden4();
+                    break;
+                case 8:
                     System.out.println("Hasta pronto");
                     break;
                 default:
@@ -46,7 +60,7 @@ public class Main {
                     break;
             }
 
-        }while(opcionMenu!=5);
+        }while(opcionMenu!=7);
     }
 
     private static void saludo(){
@@ -142,5 +156,73 @@ public class Main {
         System.out.println("La moto es modelo " + motoBryan.getModelo()
         + " con un tamaño "+motoBryan.getTamano()+" y de color "+ motoBryan.getColor());
         System.out.println("-------------------------------------------------------------------------");
+    }
+
+    //Quiz #3
+    private static void quiz3(){
+        Planta planta1 = new Planta("Frailejon", 20, 40);
+        Frailejon frailejon1 = new Frailejon(planta1, 65);
+        Planta planta2 = new Planta("Frailejon gigante", 60, 80);
+        Frailejon frailejon2 = new Frailejon(planta2, 80);
+        Planta planta3 = new Planta("Frailejon mini", 4, 1);
+        Frailejon frailejon3 = new Frailejon(planta3, 19);
+
+        verAlturaFrailejonDivisorExacto(frailejon1,2);
+        verAlturaFrailejonDivisorExacto(frailejon2,2);
+        verAlturaFrailejonDivisorExacto(frailejon3,2);
+
+        mostrarMensajeFrailejon(frailejon1);
+        mostrarMensajeFrailejon(frailejon2);
+        mostrarMensajeFrailejon(frailejon3);
+    }
+
+    private static void verAlturaFrailejonDivisorExacto(Frailejon frailejon, Integer n){
+        if(frailejon.getAltura() % n == 0){
+            System.out.println("El nombre del Frailejon es "+frailejon.getPlanta().getNombre());
+            System.out.println("La altura del Frailejon es "+frailejon.getAltura());
+        }
+    }
+
+    private static void mostrarMensajeFrailejon(Frailejon frailejon){
+        System.out.println("Ernesto Perez tiene "+frailejon.getPlanta().getNumeroHojas() +
+                           " hojas y tiene "+frailejon.getPlanta().getEdad() + " años y"+
+                           " una altura de "+frailejon.getAltura());
+    }
+
+    private static void mostrarArregloFrailejones(){
+        Planta planta1 = new Planta("Frailejon", 20, 40);
+        Planta planta2 = new Planta("Frailejon gigante", 60, 80);
+        Planta planta3 = new Planta("Frailejon mini", 4, 1);
+        //Crear un arreglo de Frailejones
+        Frailejon[] arregloFrailejones = new Frailejon[3];
+        arregloFrailejones[0] = new Frailejon(planta1, 65);
+        arregloFrailejones[1] = new Frailejon(planta2, 80);
+        arregloFrailejones[2] = new Frailejon(planta3, 19);
+
+        //Mostrar los frailejones del arreglo mediante un ciclo
+        for(int k = 0; k < arregloFrailejones.length; k++){
+            mostrarMensajeFrailejon(arregloFrailejones[k]);
+        }
+    }
+
+    private static void sumarMatricesOrden4(){
+        Integer[][] matriz1 = {{3,6,9,12}, {4,8,12,16}, {5,10,15,20}, {2,4,6,8}};
+        Integer[][] matriz2 = {{6,21,18,24}, {7,14,21,28}, {9,18,27,36}, {1,2,3,4}};
+        Integer[][] resultado = new Integer[4][4];
+
+        //Suma de matrices (termino a termino) y se guarda en resultado
+        for(int x=0;x<matriz1.length;x++){
+            for(int y=0; y< matriz2.length; y++){
+                resultado[x][y]= matriz1[x][y] + matriz2[x][y];
+            }
+        }
+
+        //Imprimir matriz resultado
+        for(int x=0;x<matriz1.length;x++){
+            for(int y=0; y< matriz2.length; y++){
+                System.out.print(resultado[x][y]+" ");
+            }
+            System.out.print("\n");
+        }
     }
 }
