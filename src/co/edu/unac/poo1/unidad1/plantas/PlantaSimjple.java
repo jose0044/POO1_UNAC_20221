@@ -1,14 +1,14 @@
-package co.edu.unac.poo1.plantas;
+package co.edu.unac.poo1.unidad1.plantas;
 
-public class Planta {
+public class PlantaSimjple {
     private String nombre;
     private Integer numeroHojas;
     private Integer edad;
 
-    public Planta() {
+    public PlantaSimjple() {
     }
 
-    public Planta(String nombre, Integer numeroHojas, Integer edad) {
+    public PlantaSimjple(String nombre, Integer numeroHojas, Integer edad) {
         this.nombre = nombre;
         this.numeroHojas = numeroHojas;
         this.edad = edad;

@@ -1,7 +1,7 @@
 package co.edu.unac.poo1;
 
-import co.edu.unac.poo1.plantas.Frailejon;
-import co.edu.unac.poo1.plantas.Planta;
+import co.edu.unac.poo1.unidad1.plantas.FrailejonSimple;
+import co.edu.unac.poo1.unidad1.plantas.PlantaSimjple;
 import co.edu.unac.poo1.unidad1.globo.Globo;
 import co.edu.unac.poo1.unidad1.moto.Moto;
 import co.edu.unac.poo1.unidad1.moto.accesorios.Casco;
@@ -160,44 +160,44 @@ public class Main {
 
     //Quiz #3
     private static void quiz3(){
-        Planta planta1 = new Planta("Frailejon", 20, 40);
-        Frailejon frailejon1 = new Frailejon(planta1, 65);
-        Planta planta2 = new Planta("Frailejon gigante", 60, 80);
-        Frailejon frailejon2 = new Frailejon(planta2, 80);
-        Planta planta3 = new Planta("Frailejon mini", 4, 1);
-        Frailejon frailejon3 = new Frailejon(planta3, 19);
+        PlantaSimjple plantaSimjple1 = new PlantaSimjple("Frailejon", 20, 40);
+        FrailejonSimple frailejonSimple1 = new FrailejonSimple(plantaSimjple1, 65);
+        PlantaSimjple plantaSimjple2 = new PlantaSimjple("Frailejon gigante", 60, 80);
+        FrailejonSimple frailejonSimple2 = new FrailejonSimple(plantaSimjple2, 80);
+        PlantaSimjple plantaSimjple3 = new PlantaSimjple("Frailejon mini", 4, 1);
+        FrailejonSimple frailejonSimple3 = new FrailejonSimple(plantaSimjple3, 19);
 
-        verAlturaFrailejonDivisorExacto(frailejon1,2);
-        verAlturaFrailejonDivisorExacto(frailejon2,2);
-        verAlturaFrailejonDivisorExacto(frailejon3,2);
+        verAlturaFrailejonDivisorExacto(frailejonSimple1,2);
+        verAlturaFrailejonDivisorExacto(frailejonSimple2,2);
+        verAlturaFrailejonDivisorExacto(frailejonSimple3,2);
 
-        mostrarMensajeFrailejon(frailejon1);
-        mostrarMensajeFrailejon(frailejon2);
-        mostrarMensajeFrailejon(frailejon3);
+        mostrarMensajeFrailejon(frailejonSimple1);
+        mostrarMensajeFrailejon(frailejonSimple2);
+        mostrarMensajeFrailejon(frailejonSimple3);
     }
 
-    private static void verAlturaFrailejonDivisorExacto(Frailejon frailejon, Integer n){
-        if(frailejon.getAltura() % n == 0){
-            System.out.println("El nombre del Frailejon es "+frailejon.getPlanta().getNombre());
-            System.out.println("La altura del Frailejon es "+frailejon.getAltura());
+    private static void verAlturaFrailejonDivisorExacto(FrailejonSimple frailejonSimple, Integer n){
+        if(frailejonSimple.getAltura() % n == 0){
+            System.out.println("El nombre del Frailejon es "+ frailejonSimple.getPlanta().getNombre());
+            System.out.println("La altura del Frailejon es "+ frailejonSimple.getAltura());
         }
     }
 
-    private static void mostrarMensajeFrailejon(Frailejon frailejon){
-        System.out.println("Ernesto Perez tiene "+frailejon.getPlanta().getNumeroHojas() +
-                           " hojas y tiene "+frailejon.getPlanta().getEdad() + " años y"+
-                           " una altura de "+frailejon.getAltura());
+    private static void mostrarMensajeFrailejon(FrailejonSimple frailejonSimple){
+        System.out.println("Ernesto Perez tiene "+ frailejonSimple.getPlanta().getNumeroHojas() +
+                           " hojas y tiene "+ frailejonSimple.getPlanta().getEdad() + " años y"+
+                           " una altura de "+ frailejonSimple.getAltura());
     }
 
     private static void mostrarArregloFrailejones(){
-        Planta planta1 = new Planta("Frailejon", 20, 40);
-        Planta planta2 = new Planta("Frailejon gigante", 60, 80);
-        Planta planta3 = new Planta("Frailejon mini", 4, 1);
+        PlantaSimjple plantaSimjple1 = new PlantaSimjple("Frailejon", 20, 40);
+        PlantaSimjple plantaSimjple2 = new PlantaSimjple("Frailejon gigante", 60, 80);
+        PlantaSimjple plantaSimjple3 = new PlantaSimjple("Frailejon mini", 4, 1);
         //Crear un arreglo de Frailejones
-        Frailejon[] arregloFrailejones = new Frailejon[3];
-        arregloFrailejones[0] = new Frailejon(planta1, 65);
-        arregloFrailejones[1] = new Frailejon(planta2, 80);
-        arregloFrailejones[2] = new Frailejon(planta3, 19);
+        FrailejonSimple[] arregloFrailejones = new FrailejonSimple[3];
+        arregloFrailejones[0] = new FrailejonSimple(plantaSimjple1, 65);
+        arregloFrailejones[1] = new FrailejonSimple(plantaSimjple2, 80);
+        arregloFrailejones[2] = new FrailejonSimple(plantaSimjple3, 19);
 
         //Mostrar los frailejones del arreglo mediante un ciclo
         for(int k = 0; k < arregloFrailejones.length; k++){
