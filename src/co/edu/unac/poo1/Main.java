@@ -6,6 +6,7 @@ import co.edu.unac.poo1.unidad1.globo.Globo;
 import co.edu.unac.poo1.unidad1.moto.Moto;
 import co.edu.unac.poo1.unidad1.moto.accesorios.Casco;
 import co.edu.unac.poo1.unidad1.moto.accesorios.Visor;
+import co.edu.unac.poo1.unidad3.plantas.Frailejon;
 
 import java.util.Scanner;
 
@@ -27,7 +28,8 @@ public class Main {
             System.out.println("5. Quiz #3");
             System.out.println("6. Ver arreglo de Frailejones");
             System.out.println("7. Ver suma de matrices de Orden 4");
-            System.out.println("8. Salir de la aplicacion");
+            System.out.println("8. Crear y ver arreglo de Frailejones");
+            System.out.println("9. Salir de la aplicacion");
             opcionMenu = scanner.nextInt();
             scanner.nextLine(); //Se agrega para procesar el enter despues de digitar un numero
             switch(opcionMenu){
@@ -53,6 +55,9 @@ public class Main {
                     sumarMatricesOrden4();
                     break;
                 case 8:
+                    crearArregloFrailejones();
+                    break;
+                case 9:
                     System.out.println("Hasta pronto");
                     break;
                 default:
@@ -60,7 +65,7 @@ public class Main {
                     break;
             }
 
-        }while(opcionMenu!=7);
+        }while(opcionMenu!=9);
     }
 
     private static void saludo(){
@@ -224,5 +229,54 @@ public class Main {
             }
             System.out.print("\n");
         }
+    }
+
+    private static void crearArregloFrailejones(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Por favor ingrese cuantos Frailejones desea crear:");
+        Integer numeroFrailejones = 0;
+        numeroFrailejones = scanner.nextInt();
+        scanner.nextLine();
+
+        Frailejon[] arregloFrailejones = new Frailejon[numeroFrailejones];
+
+        for(int i=0; i < arregloFrailejones.length; i++){
+            arregloFrailejones[i] = llenarFrailejon();
+        }
+        mostrarArregloFrailejones(arregloFrailejones);
+    }
+
+    private static Frailejon llenarFrailejon(){
+        Scanner scanner = new Scanner(System.in);
+        String nombre = "";
+        Integer altura = 0;
+        Integer edad = 0;
+        Float porcentajeAgua = 0f;
+        System.out.println("Por favor escriba los datos del Frailejon");
+        System.out.println("NOMBRE");
+        nombre = scanner.nextLine();
+        System.out.println("ALTURA");
+        altura = scanner.nextInt();
+        scanner.nextLine();
+        System.out.println("EDAD");
+        edad = scanner.nextInt();
+        scanner.nextLine();
+        System.out.println("PORCENTAJE DE AGUA QUE ALMACENA");
+        porcentajeAgua = scanner.nextFloat();
+        scanner.nextLine();
+        return new Frailejon(nombre, altura, edad, porcentajeAgua);
+    }
+
+    private static void mostrarArregloFrailejones(Frailejon[] arregloFrailejones){
+        System.out.println("------------Estos son los Frailejones creados------------");
+        for(int i=0; i < arregloFrailejones.length; i++){
+            System.out.println("Frailejon # " + (i+1));
+            System.out.println("NOMBRE: " + arregloFrailejones[i].getNombre());
+            System.out.println("ALTURA: " + arregloFrailejones[i].getAltura());
+            System.out.println("EDAD: " + arregloFrailejones[i].getEdad());
+            System.out.println("PORCENTAJE DE AGUA QUE ALMACENA: "+ arregloFrailejones[i].getPorcentajeAgua());
+        }
+        System.out.println("---------------------------------------------------------");
+
     }
 }
