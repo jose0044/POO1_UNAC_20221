@@ -32,7 +32,8 @@ public class Main {
             System.out.println("7. Ver suma de matrices de Orden 4");
             System.out.println("8. Crear y ver arreglo de Frailejones");
             System.out.println("9. Crear un arreglo de 6 flores y ver una al azar usando Random");
-            System.out.println("10. Salir de la aplicacion");
+            System.out.println("10. Unir dos vectores de Frailejones");
+            System.out.println("11. Salir de la aplicacion");
             opcionMenu = scanner.nextInt();
             scanner.nextLine(); //Se agrega para procesar el enter despues de digitar un numero
             switch(opcionMenu){
@@ -64,6 +65,9 @@ public class Main {
                     crearArreglosFloralesYVerUnoAlAzar();
                     break;
                 case 10:
+                    unirVectoresFrailejones();
+                    break;
+                case 11:
                     System.out.println("Hasta pronto");
                     break;
                 default:
@@ -337,5 +341,38 @@ public class Main {
             System.out.println("GROSOR: "+ flor.getPetalos()[i].getGrosor());
             System.out.println("*******************************");
         }
+    }
+
+    private static void unirVectoresFrailejones(){
+        /*Crear dos arreglos de 3 Frailejones cada uno, con sus intancias.
+        Luego crear un vector resultante con todos los Frailejones pero intercalados y mostarlo
+        por pantalla, esto es:
+        VECTOR 1 = {A,B,C}
+        VECTOR 2 = {D,E,F}
+
+        VECTOR RESULTANTE = {A,D,B,E,C,F}
+        */
+        Frailejon frailejon1 = new Frailejon("Ernesto Perez", 23, 6, 70.5f);
+        Frailejon frailejon2 = new Frailejon("Francisco Perez", 28, 6, 80f);
+        Frailejon frailejon3 = new Frailejon("Andrea Perez", 13, 4, 60.15f);
+        Frailejon frailejon4 = new Frailejon("Maria Perez", 30, 8, 90.9f);
+        Frailejon frailejon5 = new Frailejon("Lina Perez", 12, 3, 74.3f);
+        Frailejon frailejon6 = new Frailejon("Carlos Perez", 50, 16, 75.9f);
+
+        Frailejon[] frailejones1 = new Frailejon[]{frailejon1, frailejon2, frailejon3};
+        Frailejon[] frailejones2 = new Frailejon[]{frailejon4, frailejon5, frailejon6};
+
+        Frailejon[] arregloFrailejones = new Frailejon[6];
+
+        //Ciclo para las posiciones pares
+        for(int i=0; i<arregloFrailejones.length; i+=2){
+            arregloFrailejones[i] = frailejones1[i/2];
+        }
+        //Ciclo para las posiciones impares
+        for(int i=1; i<arregloFrailejones.length; i+=2){
+            arregloFrailejones[i] = frailejones2[i/2];
+        }
+        //Mostrar arreglo final por pantalla
+        mostrarArregloFrailejones(arregloFrailejones);
     }
 }
