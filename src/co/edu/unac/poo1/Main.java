@@ -75,7 +75,7 @@ public class Main {
                     break;
             }
 
-        }while(opcionMenu!=10);
+        }while(opcionMenu!=11);
     }
 
     private static void saludo(){
