@@ -71,32 +71,63 @@ public class Unidad4 {
         }
     }
 
+    public static void quizListas5Pct(){
+        System.out.println("ENUNCIADO:");
+        System.out.println("Crear 5 instancias de Cafe, agruparlas en una lista, luego");
+        System.out.println("mostrar por pantalla 2 instancias primas (aquellas donde");
+        System.out.println("el campo sizeBean es un numero primo).");
+        System.out.println("----------------------------------------------------------");
+
+        ArrayList<Cafe> listaCafes = obtenerListaArrayListCafes();
+        int contadorInstancias = 0;
+        for (Cafe cafeActual : listaCafes) {
+            if (contadorInstancias < 2) {
+                if (esPrimo(cafeActual.getSizeBean().intValue())) {
+                    mostrarCafePorPantalla(cafeActual);
+                    contadorInstancias++;
+                }
+            } else {
+                break;
+            }
+        }
+    }
+
+    private static boolean esPrimo(Integer numero){
+        for (int i = 2; i < numero; i++) {
+            if (numero % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     private static void mostrarCafePorPantalla(Cafe cafeActual){
         System.out.println("Nombre:"+cafeActual.getNombre());
         System.out.println("Altura: "+cafeActual.getAltura());
         System.out.println("Sabor: "+cafeActual.getSabor());
         System.out.println("Edad: "+cafeActual.getEdad());
+        System.out.println("Tamaño del grano: "+cafeActual.getSizeBean());
     }
     private static Vector<Cafe> obtenerListaVectorCafes(){
         Cafe cafe1 = new Cafe("cafe arabiga joven",
                 1400, 6, "arabiga",
-                "suave",1.5F);
+                "suave",4.5F);
 
         Cafe cafe2 = new Cafe("cafe arabiga",
                 1400, 8, "arabiga",
-                "suave",1.1F);
+                "suave",2.1F);
 
         Cafe cafe3 = new Cafe("cafe bourbon",
                 1600, 2, "bourbon",
-                "dulce",3F);
+                "dulce",11F);
 
         Cafe cafe4 = new Cafe("old coffee bourbon",
                 1150, 9, "bourbon",
-                "dulce",2.6F);
+                "dulce",2F);
 
         Cafe cafe5 = new Cafe("small coffee bourbon",
                 1920, 6, "bourbon",
-                "dulce",1F);
+                "dulce",7F);
 
         Vector<Cafe> listaCafes = new Vector<>();
         listaCafes.add(cafe1);

@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 public class Unidad1 {
 
-    private static final int MAXIMA_OPCION_MENU = 14;
+    private static final int MAXIMA_OPCION_MENU = 15;
 
     public static void menuPrincipal(){
         int opcionMenu;
@@ -33,7 +33,8 @@ public class Unidad1 {
             System.out.println("11. Ver lista de ejemplo de Cafes");
             System.out.println("12. Ver lista de Cafes ordenados por altura de menor a mayor");
             System.out.println("13. Ver lista de Cafes cuya edad es multiplo de un numero dado");
-            System.out.println("14. Salir de la aplicacion");
+            System.out.println("14. Quiz de Listas, 5%");
+            System.out.println("15. Salir de la aplicacion");
             opcionMenu = scanner.nextInt();
             scanner.nextLine(); //Se agrega para procesar el enter
             // despues de digitar un numero
@@ -76,6 +77,9 @@ public class Unidad1 {
                     break;
                 case 13:
                     Unidad4.mostrarCafesEdadMultiploNumeroDado();
+                    break;
+                case 14:
+                    Unidad4.quizListas5Pct();
                     break;
                 case MAXIMA_OPCION_MENU:
                     System.out.println("Hasta pronto");
