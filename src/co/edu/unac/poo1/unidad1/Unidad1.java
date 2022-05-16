@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 public class Unidad1 {
 
-    private static final int MAXIMA_OPCION_MENU = 15;
+    private static final int MAXIMA_OPCION_MENU = 18;
 
     public static void menuPrincipal(){
         int opcionMenu;
@@ -20,21 +20,28 @@ public class Unidad1 {
         do{
             Unidad1.saludo();
             System.out.println("\nPor favor digite una opcion:");
+            System.out.println("---------------------------UNIDAD 1---------------------------");
             System.out.println("1. Ver Globos existentes");
             System.out.println("2. Recomendar un tipo de Globo");
             System.out.println("3. Ver tipos de Cascos");
             System.out.println("4. Registrar y ver una moto");
+            System.out.println("---------------------------UNIDAD 2---------------------------");
             System.out.println("5. Quiz #3");
             System.out.println("6. Ver arreglo de Frailejones");
             System.out.println("7. Ver suma de matrices de Orden 4");
+            System.out.println("---------------------------UNIDAD 3---------------------------");
             System.out.println("8. Crear y ver arreglo de Frailejones");
             System.out.println("9. Crear un arreglo de 6 flores y ver una al azar usando Random");
             System.out.println("10. Unir dos vectores de Frailejones");
+            System.out.println("---------------------------UNIDAD 4---------------------------");
             System.out.println("11. Ver lista de ejemplo de Cafes");
             System.out.println("12. Ver lista de Cafes ordenados por altura de menor a mayor");
             System.out.println("13. Ver lista de Cafes cuya edad es multiplo de un numero dado");
             System.out.println("14. Quiz de Listas, 5%");
-            System.out.println("15. Salir de la aplicacion");
+            System.out.println("15. Ver tablas de multiplicar");
+            System.out.println("16. Ver un Cafe creado en un mapa");
+            System.out.println("17. Ver lista de ejemplo de Frailejones");
+            System.out.println("18. Salir de la aplicacion");
             opcionMenu = scanner.nextInt();
             scanner.nextLine(); //Se agrega para procesar el enter
             // despues de digitar un numero
@@ -80,6 +87,15 @@ public class Unidad1 {
                     break;
                 case 14:
                     Unidad4.quizListas5Pct();
+                    break;
+                case 15:
+                    Unidad4.verTablasMultiplicar();
+                    break;
+                case 16:
+                    Unidad4.verCafeEnMapa();
+                    break;
+                case 17:
+                    Unidad4.verListaFrailejones();
                     break;
                 case MAXIMA_OPCION_MENU:
                     System.out.println("Hasta pronto");
