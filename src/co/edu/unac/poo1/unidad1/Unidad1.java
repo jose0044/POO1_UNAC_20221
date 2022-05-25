@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 public class Unidad1 {
 
-    private static final int MAXIMA_OPCION_MENU = 18;
+    private static final int MAXIMA_OPCION_MENU = 20;
 
     public static void menuPrincipal(){
         int opcionMenu;
@@ -41,7 +41,9 @@ public class Unidad1 {
             System.out.println("15. Ver tablas de multiplicar");
             System.out.println("16. Ver un Cafe creado en un mapa");
             System.out.println("17. Ver lista de ejemplo de Frailejones");
-            System.out.println("18. Salir de la aplicacion");
+            System.out.println("18. Quiz Mayo 18 Frailejones");
+            System.out.println("19. Quiz Mayo 18 cafes");
+            System.out.println("20. Salir de la aplicacion");
             opcionMenu = scanner.nextInt();
             scanner.nextLine(); //Se agrega para procesar el enter
             // despues de digitar un numero
@@ -97,6 +99,12 @@ public class Unidad1 {
                 case 17:
                     Unidad4.verListaFrailejones();
                     break;
+                case 18:
+                    Unidad4.quizMayo18Frailejones();
+                    break;
+                 case 19:
+                    Unidad4.quizMayo18Cafes();
+                    break;
                 case MAXIMA_OPCION_MENU:
                     System.out.println("Hasta pronto");
                     break;
@@ -133,7 +141,7 @@ public class Unidad1 {
         Globo globo = new Globo("Michelin", "Aerostatico", 8);
         Globo globo2 = new Globo("Pirelli", "Mini aerostatico", 2);
         //Vamos a sugerir una marca y tipo de globo de acuerdo al numero de personas dado por el usuario
-        Integer numeroPersonasUsuario;
+        int numeroPersonasUsuario;
         Scanner scanner = new Scanner(System.in);
         System.out.println("Escriba el numero de personas que iran en el globo");
         numeroPersonasUsuario = scanner.nextInt();
@@ -170,9 +178,9 @@ public class Unidad1 {
 
     public static void registrarYVerMoto(){
         Scanner scanner = new Scanner(System.in);
-        String color = "";
-        Integer tamano = 0;
-        Integer modelo = 0;
+        String color;
+        int tamano;
+        int modelo;
 
         System.out.println("Por favor ingrese los datos de la moto");
         System.out.println("Color");

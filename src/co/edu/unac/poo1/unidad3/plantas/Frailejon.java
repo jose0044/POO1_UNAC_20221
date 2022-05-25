@@ -2,7 +2,7 @@ package co.edu.unac.poo1.unidad3.plantas;
 
 public class Frailejon extends Herbacea {
 
-    private Integer consecutivo;
+    private Long consecutivo;
     private Float porcentajeAgua;
 
     public Frailejon() {
@@ -14,17 +14,17 @@ public class Frailejon extends Herbacea {
        this.porcentajeAgua = porcentajeAgua;
     }
 
-    public Frailejon (Integer consecutivo, String nombre,Integer altura, Integer edad,Float porcentajeAgua){
+    public Frailejon (Long consecutivo, String nombre,Integer altura, Integer edad,Float porcentajeAgua){
         super(nombre,altura,edad);
         this.consecutivo = consecutivo;
         this.porcentajeAgua = porcentajeAgua;
     }
 
-    public Integer getConsecutivo() {
+    public Long getConsecutivo() {
         return consecutivo;
     }
 
-    public void setConsecutivo(Integer consecutivo) {
+    public void setConsecutivo(Long consecutivo) {
         this.consecutivo = consecutivo;
     }
 
@@ -40,7 +40,7 @@ public class Frailejon extends Herbacea {
         Frailejon frailejon = new Frailejon();
         String []lineaFrailejon = linea.split("\\|");
         String []lineaTexto = lineaFrailejon[0].split("CONSECUTIVO:");
-        frailejon.consecutivo = Integer.valueOf(lineaTexto[1]);
+        frailejon.consecutivo = Long.valueOf(lineaTexto[1]);
         lineaTexto = lineaFrailejon[1].split("NOMBRE:");
         frailejon.nombre = lineaTexto[1];
         lineaTexto = lineaFrailejon[2].split("ALTURA:");

@@ -114,7 +114,46 @@ public class Unidad4 {
             }
         }
     }
+    /**
+     * Cree un mapa de frailejones, luego busque aquellos frailejones
+     * cuya suma total de porcentaje de agua sea igual a 1
+     * y luego remueva del mapa ese listado de frailejones,
+     * muestre luego el numero total de frailejones que quedaron en el mapa
+     * */
+    public static void quizMayo18Frailejones (){
+        HashMap<Long, Frailejon> mapaFrailejones = new HashMap<>();
+        ArrayList<Long> idsFrailejonesBorrar = new ArrayList<>();
+        Float sumaPorcentajes = 0f;
+        for( Frailejon frailejonActual : leerArchivoPlanoFrailejones()){
+            sumaPorcentajes += frailejonActual.getPorcentajeAgua();
+            if(sumaPorcentajes <= 1){
+                idsFrailejonesBorrar.add(frailejonActual.getConsecutivo());
+            }
+            mapaFrailejones.put(frailejonActual.getConsecutivo(), frailejonActual);
+        }
 
+        for(Long idFrailejonBorrar : idsFrailejonesBorrar){
+            mapaFrailejones.remove(idFrailejonBorrar);
+        }
+        System.out.println("El total de Frailejones es: "+mapaFrailejones.size());
+    }
+
+    /**
+     * Cree un mapa de Cafe, luego busque aquellos cafes
+     * cuya altura y edad sean numeros primos
+     * y luego remueva del mapa ese listado de Cafes,
+     * muestre luego el numero total de Cafes que quedaron en el mapa
+     * */
+    public static void quizMayo18Cafes() {
+        HashMap<String, Cafe> mapaCafes = new HashMap<>();
+        for (Cafe cafeActual : obtenerListaArrayListCafes()) {
+            if (!(esPrimo(cafeActual.getAltura()) && esPrimo(cafeActual.getEdad()))){
+                mapaCafes.put(cafeActual.getSerial(), cafeActual);
+            }
+        }
+        System.out.println("El total de cafés es:" + (mapaCafes.size()));
+
+    }
     public static void verTablasMultiplicar(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Por favor escriba un numero por pantalla");
@@ -151,7 +190,7 @@ public class Unidad4 {
         }
     }
 
-    private static boolean esPrimo(Integer numero){
+    public static boolean esPrimo(Integer numero){
         for (int i = 2; i < numero; i++) {
             if (numero % i == 0) {
                 return false;
@@ -180,12 +219,12 @@ public class Unidad4 {
         return new Vector<>(leerArchivoPlanoCafes());
     }
 
-    private static ArrayList<Cafe> obtenerListaArrayListCafes(){
+    public static ArrayList<Cafe> obtenerListaArrayListCafes(){
         Vector<Cafe> listaCafes = obtenerListaVectorCafes();
         return new ArrayList<>(listaCafes);
     }
 
-    private static List<Cafe> leerArchivoPlanoCafes() {
+    public static List<Cafe> leerArchivoPlanoCafes() {
         Stream<String> lines = null;
         Path pathArchvioPlano = Paths.get(RUTA_ARCHIVO_CAFES);
         ArrayList<Cafe> listaCafes = new ArrayList<>();
@@ -206,7 +245,7 @@ public class Unidad4 {
         return listaCafes;
     }
 
-    private static List<Frailejon> leerArchivoPlanoFrailejones() {
+    public static List<Frailejon> leerArchivoPlanoFrailejones() {
         Stream<String> lines = null;
         Path pathArchvioPlano = Paths.get(RUTA_ARCHIVO_FRAILEJONES);
         ArrayList<Frailejon> listaFrailejones = new ArrayList<>();
@@ -215,8 +254,8 @@ public class Unidad4 {
             List<String> datos = lines.collect(Collectors.toList());
             System.out.println(ZonedDateTime.now().format(DateTimeFormatter.RFC_1123_DATE_TIME));
             for (String dato : datos) {
-                Frailejon nuevoCafe = Frailejon.procesarLineaArchivoPlano(dato);
-                listaFrailejones.add(nuevoCafe);
+                Frailejon frailejon = Frailejon.procesarLineaArchivoPlano(dato);
+                listaFrailejones.add(frailejon);
             }
         } catch (IOException ioex){
             System.err.println("Error de IO al leer el archivo plano " + ioex.getMessage());
