@@ -1,8 +1,5 @@
 package co.edu.unac.poo1.unidad5.plantasMega;
 
-import co.edu.unac.poo1.unidad3.plantas.Planta;
-import co.edu.unac.poo1.unidad5.AccionesPlantas;
-
 public class MegaPlanta implements AccionesPlantas {
 
     protected String nombre;

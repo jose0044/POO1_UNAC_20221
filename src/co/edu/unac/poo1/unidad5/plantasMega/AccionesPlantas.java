@@ -1,4 +1,4 @@
-package co.edu.unac.poo1.unidad5;
+package co.edu.unac.poo1.unidad5.plantasMega;
 
 public interface AccionesPlantas {
 
